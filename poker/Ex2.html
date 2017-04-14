@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>homework2</title>
+		<script type="text/javascript">
+			window.addEventListener("load",start,false);
+			function start()
+			{
+				originalShow();
+				randomShow();
+				document.getElementById("GoRandom").addEventListener("click",randomShow,false);
+			}
+			function randomShow()
+			{
+				var s="<table border='1'>";
+				var value;
+				for(var i=0;i<52;i++)
+				{
+					if(i==0||i==13||i==26||i==39)
+					{
+						s+="<tr>";
+					}
+					value=Math.floor(Math.random()*52);
+					s+="<td><img src='"+value+".png'>"+"</td>";
+					if(i==12||i==25||i==38||i==51)
+					{
+						s+="</tr>";
+					}
+				}
+				s+="</table>"
+				document.getElementById("random").innerHTML=s;
+			}
+			function originalShow()
+			{
+				var s="<table border='1'>";
+				for(var i=0;i<52;i++)
+				{
+					if(i==0||i==13||i==26||i==39)
+					{
+						s+="<tr>";
+					}
+					s+="<td><img id ='"+i+"' src='"+i+".png'>"+"</td>";
+					if(i==12||i==25||i==38||i==51)
+					{
+						s+="</tr>";
+					}
+				}
+				s+="</table>"
+				document.getElementById("original").innerHTML=s;
+			}
+		</script>
+	</head>
+	<body>
+		<p>Original Order:</p>
+		<div id="original"></div>
+		<p>&nbsp;</p>
+		<p>Random select 52 cards:</p>
+		<div id="random"></div>
+		<input id="GoRandom" type="button" value="Go">
+	</body>
+</html>
