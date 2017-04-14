@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>the poker maker </title>
+      <style type = "text/css">
+         img           { margin-right: 10px; }
+         table         { width: 200px;
+                         border-collapse:collapse; 
+                         background-color: lightblue; }
+         table, td, th { border: 1px solid black; 
+                         padding: 4px; 
+                         margin-top: 20px; }
+         th            { text-align: left; 
+                         color: white;
+                         background-color: darkblue; }
+      </style>
+      <script type="text/javascript">
+      window.addEventListener("load",start,false);
+      function start(){
+      	show_the_poker();
+      	
+      	document.getElementById("order").addEventListener("click",order_the_poker,false);
+
+      }
+      function show_the_poker(){
+      	var table_normal = document.getElementById("the_normal");
+      	table_normal+= "<p>the normal card order </p> ";
+      		for (var i = 0;i<52;i++){
+      			
+
+      			table_normal+="<img src='"+i+".png' alt='this is "+i+".png'>";
+      		}
+
+      	document.getElementById("the_normal").innerHTML=table_normal;
+      	 }
+      function order_the_poker(){
+      	var random_poker = document.getElementById("random");
+      	random_poker+= "<p>the radom card order </p> ";
+      		for (var i = 0;i<52;i++){
+      			var face=Math.floor (1+Math.random()*51);
+
+      			random_poker+="<img src='"+face+".png' alt='this is "+face+".png'>";
+      		}
+
+      	document.getElementById("random").innerHTML=random_poker;
+      	 }
+
+
+
+
+
+      </script>
+     </head>
+     <body>
+     
+     <div id='the_normal'></div>
+     
+     
+     <input  id= "order" type="button" value="order">
+     <div id="random"></div>
+
+
+     	
+
+
+
+
+
+
+     </body>
+
+
+
+</html>
