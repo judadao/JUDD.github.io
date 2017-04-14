@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>the poker maker </title>
+      <!--style type = "text/css">
+         img           { margin-right: 10px; }
+         table         { width: 200px;
+                         border-collapse:collapse; 
+                         background-color: lightblue; }
+         table, td, th { border: 1px solid black; 
+                         padding: 4px; 
+                         margin-top: 20px; }
+         th            { text-align: left; 
+                         color: white;
+                         background-color: darkblue; }
+      </style-->
+      <script type="text/javascript">
+      window.addEventListener("load",start,false);
+      function start(){
+      	show_the_poker();
+      	
+      	document.getElementById("order").addEventListener("click",order_the_poker,false);
+
+      }
+      function show_the_poker(){
+      	var table_normal ;
+      	table_normal= "<table border='1'> ";
+      		for (var i = 0;i<52;i++){
+            if (i==0||i==13||i==26||i==39)
+            table_normal+="<tr>";      			
+
+      			table_normal+="<td><img src='"+i+".png' alt='this is "+i+".png'></td>";
+            if (i==12||i==25||i==38||i==51)
+              table_normal+="</tr>";
+                     
+      		}
+          table_normal+="</table>";
+
+      	document.getElementById("the_normal").innerHTML=table_normal;//.getElementById("the_normal");
+      	 }
+      function order_the_poker(){
+      	var random_poker ;
+        //= document.getElementById("random");
+      	random_poker= "<table border='1'> ";
+      		for (var i = 0;i<52;i++){
+      			var face=Math.floor (1+Math.random()*51);
+            if (i==0||i==13||i==26||i==39)
+              random_poker+="<tr>";           
+
+            random_poker+="<td><img src='"+face+".png' alt='this is "+face+".png'></td>";
+              if (i==12||i==25||i==38||i==51)
+                random_poker+="</tr>";
+      		}
+          random_poker+="</table>";
+
+
+      	//document.getElementById("random").innerHTML=
+        document.getElementById("random").innerHTML=random_poker;
+      	 }
+
+
+
+
+
+      </script>
+     </head>
+     <body>
+     <p>the normal poker</p>
+     <div id='the_normal' value="best"></div>
+     
+     
+     <input  id= "order" type="button" value="random">
+     <p>the random poker </p>
+     <div id="random" value ="best"></div>
+
+
+     </body>
+
+
+
+</html>
